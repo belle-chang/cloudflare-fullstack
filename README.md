@@ -1,4 +1,10 @@
-[create an anchor](#anchors-in-markdown)
+# Edit:
+
+See below for implementation details!
+
+- [Fetching the Request](#### Request Implementation:)
+- [Requesting the Variant](#### Request Variant Implementation:)
+- [Randomly Distributing Between the Two Variants](#### Random Distribution Implementation:)
 
 
 # Cloudflare Workers Internship Application: Full-Stack
@@ -7,48 +13,22 @@
 
 Using Cloudflare Workers, you'll deploy an application that will randomly send users to one of two webpages. This project will teach you how to write applications with the Cloudflare Workers API, manage and develop them using the command-line tool Wrangler, and deploy them to the free workers.dev deployment playground.
 
-## Useful Links
-
-- [Workers Quick Start documentation](https://developers.cloudflare.com/workers/quickstart/)
-- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- [HTMLRewriter](https://developers.cloudflare.com/workers/reference/apis/html-rewriter/)
-- [Cookie documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-
-## Get Started
-
-### 1. Install the workers command-line tool wrangler.
-
-The Workers Quick Start in the documentation shows how to get started with Wrangler, creating a project, and configuring and deploying it. We highly recommend that you spend time reading and following along with this guide!
-
-To begin, install the [Wrangler](https://github.com/cloudflare/wrangler) command-line tool.
-
-### 2. Generate a new project using `wrangler generate` command
-
-Using the `generate` command (covered in the Quick Start), generate a new project with a name of your choice:
-
-```sh
-$ wrangler generate your-project-name https://github.com/cloudflare-internship-2020/internship-application-fullstack
-```
-
-### 3. Use `wrangler dev` to locally test/develop your application
-
-The recently launched [`wrangler dev`](https://github.com/cloudflare/wrangler#-dev) feature will allow you to begin developing your application using `localhost` - this means that you can test your project locally and make sure it works, without having to sort out deployment until later in the exercise.
-
-Note that a major benefit of using `wrangler dev` is the ability to output `console.log` statements to your terminal - this is super useful for inspecting HTTP responses and variables!
-
 ## Requirements
 
 ### 1. Request the URLs from the API
-
 Make a fetch request inside of your script's event handler to the URL `https://cfw-takehome.developers.workers.dev/api/variants`, and parse the response as JSON. The response will be an array of URLs, which should be saved to a variable.
+#### Request Implementation:
+- This was very simple -- I just used fetch() and .json() to return the json at the link specified above.
 
 ### 2. Request a (random: see #3) variant
-
 Make a fetch request to one of the two URLs, and return it as the response from the script.
+#### Request Variant Implementation:
+- This was also very simple -- I just used fetch() on one of the URLs and returned the response.
 
 ### 3. Distribute requests between variants
-
 The `/api/variants` API route will return an array of two URLs. Requests should be evenly distributed between the two urls, in A/B testing style. This means that when a client makes a request to the Workers script, the script should roughly return each variant around 50% of the time.
+#### Random Distribution Implementation:
+- I used Math.random() to generate a random number \[0, 1). Then, if the value was greater than or equal to 0.5, I decided return the first variant. If not, I returned the second variant.
 
 ## Deployment
 
@@ -86,5 +66,3 @@ If a user visits the site and receives one of the two URLs, persist which URL is
 ### 3. Publish to a domain
 
 If you have a registered domain/zone with Cloudflare, try deploying your project by customizing the `zone_id` and `route` in your `wrangler.toml`. Make sure to check out the [Quick Start](https://developers.cloudflare.com/workers/quickstart) in the Workers docs for details on how to do this! **Note:** domains cost money, so if you don't have one, please don't feel obligated to buy one for this exercise. This is an extra credit task and you won't be penalized for skipping this one, we promise!
-
-# anchors-in-markdown
