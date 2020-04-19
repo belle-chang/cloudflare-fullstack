@@ -2,18 +2,20 @@
 
 ### See below for implementation details!
 
-- 1. Request the URLs from the API
- - [Fetching the Request](#request-implementation)
-- 2. Request a (random: see #3) variant
- - [Requesting the Variant](#request-variant-implementation)
-- 3. Distribute requests between variants
- - [Randomly Distributing Between the Two Variants](#random-distribution-implementation)
+- **Request the URLs from the API**
+  - [Fetching the Request](#request-implementation)
+- **Request a (random: see #3) variant**
+  - [Requesting the Variant](#request-variant-implementation)
+- **Distribute requests between variants**
+  - [Randomly Distributing Between the Two Variants](#random-distribution-implementation)
  
 ## Extra credit implementation details:
-- 1. Changing copy/URLs
- - [Customizing Webpage Details](#using-htmlrewriter)
-- 2. Persisting variants
- - [Adding Cookies](#cookie-implementation)
+- **Changing copy/URLs**
+  - [Customizing Webpage Details](#using-htmlrewriter)
+- **Persisting variants**
+  - [Adding Cookies](#cookie-implementation)
+- **Publish to a Domain**
+  - Unfortunately I do not have a domain!
 
 
 
