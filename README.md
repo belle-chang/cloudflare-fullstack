@@ -5,9 +5,9 @@ See below for implementation details!
  [xoxo](#requirements)
 [create an anchor](#anchors-in-markdown)
 
-- [Fetching the Request](#request-implementation:)
-- [Requesting the Variant](#request-variant-implementation:)
-- [Randomly Distributing Between the Two Variants](#random-distribution-implementation:)
+[Fetching the Request](#request-implementation:)
+[Requesting the Variant](#request-variant-implementation:)
+[Randomly Distributing Between the Two Variants](#random-distribution-implementation:)
 
 
 # Cloudflare Workers Internship Application: Full-Stack
