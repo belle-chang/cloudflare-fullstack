@@ -8,7 +8,7 @@
 - **Distribute requests between variants**
   - [Randomly Distributing Between the Two Variants](#random-distribution-implementation)
  
-## Extra credit implementation details:
+### Extra credit implementation details:
 - **Changing copy/URLs**
   - [Customizing Webpage Details](#using-htmlrewriter)
 - **Persisting variants**
