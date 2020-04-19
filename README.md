@@ -4,7 +4,7 @@ See below for implementation details!
 
 - [xoxo](##requirements)
 
-- [Fetching the Request](####request-implementation:)
+- [Fetching the Request](####request-implementation)
 - [Requesting the Variant](#### Request Variant Implementation:)
 - [Randomly Distributing Between the Two Variants](#### Random Distribution Implementation:)
 
