@@ -87,4 +87,4 @@ If a user visits the site and receives one of the two URLs, persist which URL is
 
 If you have a registered domain/zone with Cloudflare, try deploying your project by customizing the `zone_id` and `route` in your `wrangler.toml`. Make sure to check out the [Quick Start](https://developers.cloudflare.com/workers/quickstart) in the Workers docs for details on how to do this! **Note:** domains cost money, so if you don't have one, please don't feel obligated to buy one for this exercise. This is an extra credit task and you won't be penalized for skipping this one, we promise!
 
-(#anchors-in-markdown)
+# anchors-in-markdown
