@@ -1,4 +1,3 @@
-# Edit:
 
 ### See below for implementation details!
 
