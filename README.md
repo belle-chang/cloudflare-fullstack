@@ -2,7 +2,7 @@
 
 See below for implementation details!
 
-- [Fetching the Request](#### Request Implementation:)
+- [Fetching the Request](####-Request-Implementation:)
 - [Requesting the Variant](#### Request Variant Implementation:)
 - [Randomly Distributing Between the Two Variants](#### Random Distribution Implementation:)
 
