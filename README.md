@@ -2,7 +2,7 @@
 
 See below for implementation details!
 
-- [xoxo](##requirements)
+ [xoxo](##requirements)
 [create an anchor](#anchors-in-markdown)
 
 - [Fetching the Request](####request-implementation)
@@ -20,17 +20,17 @@ Using Cloudflare Workers, you'll deploy an application that will randomly send u
 
 ### 1. Request the URLs from the API
 Make a fetch request inside of your script's event handler to the URL `https://cfw-takehome.developers.workers.dev/api/variants`, and parse the response as JSON. The response will be an array of URLs, which should be saved to a variable.
-#### Request Implementation:
+#### Request Implementation
 - This was very simple -- I just used fetch() and .json() to return the json at the link specified above.
 
 ### 2. Request a (random: see #3) variant
 Make a fetch request to one of the two URLs, and return it as the response from the script.
-#### Request Variant Implementation:
+#### Request Variant Implementation
 - This was also very simple -- I just used fetch() on one of the URLs and returned the response.
 
 ### 3. Distribute requests between variants
 The `/api/variants` API route will return an array of two URLs. Requests should be evenly distributed between the two urls, in A/B testing style. This means that when a client makes a request to the Workers script, the script should roughly return each variant around 50% of the time.
-#### Random Distribution Implementation:
+#### Random Distribution Implementation
 - I used Math.random() to generate a random number \[0, 1). Then, if the value was greater than or equal to 0.5, I decided return the first variant. If not, I returned the second variant.
 
 ## Deployment
@@ -69,4 +69,4 @@ If a user visits the site and receives one of the two URLs, persist which URL is
 ### 3. Publish to a domain
 
 If you have a registered domain/zone with Cloudflare, try deploying your project by customizing the `zone_id` and `route` in your `wrangler.toml`. Make sure to check out the [Quick Start](https://developers.cloudflare.com/workers/quickstart) in the Workers docs for details on how to do this! **Note:** domains cost money, so if you don't have one, please don't feel obligated to buy one for this exercise. This is an extra credit task and you won't be penalized for skipping this one, we promise!
-# anchors-in-markdown
+# anchors in markdown
