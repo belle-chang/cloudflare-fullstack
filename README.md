@@ -1,13 +1,20 @@
 # Edit:
 
-See below for implementation details!
+### See below for implementation details!
 
- [xoxo](#requirements)
-[create an anchor](#anchors-in-markdown)
+- 1. Request the URLs from the API
+ - [Fetching the Request](#request-implementation)
+- 2. Request a (random: see #3) variant
+ - [Requesting the Variant](#request-variant-implementation)
+- 3. Distribute requests between variants
+ - [Randomly Distributing Between the Two Variants](#random-distribution-implementation)
+ 
+## Extra credit implementation details:
+- 1. Changing copy/URLs
+ - [Customizing Webpage Details](#using-htmlrewriter)
+- 2. Persisting variants
+ - [Adding Cookies](#cookie-implementation)
 
-[Fetching the Request](#request-implementation)
-[Requesting the Variant](#request-variant-implementation)
-[Randomly Distributing Between the Two Variants](#random-distribution-implementation)
 
 
 # Cloudflare Workers Internship Application: Full-Stack
@@ -61,12 +68,15 @@ For each variant page, there are a number of items on the page that can be custo
 - `a#url`: a Call to Action link with strong emphasis on the page. Try changing this to a URL of your choice, such as your personal website, and make sure to update the text "Return to cloudflare.com" as well!
 
 This can be done using the [HTMLRewriter](https://developers.cloudflare.com/workers/reference/apis/html-rewriter/) API built into the Workers runtime, or using simple text replacement.
+#### Using HTML Rewriter:
+I looked over the HTMLRewriter Docs and used the ElementHandler() class to update the webpage information, using the tagName property and getAttribute() function to select certain elements of the webpage by ID. I also decided to customize the button color according to the topic that I wrote about! :)
 
 ### 2. Persisting variants
 
 If a user visits the site and receives one of the two URLs, persist which URL is chosen in a cookie so that they always see the same variant when they return to the application. A cookie would be a great way to implement this!
+#### Cookie Implementation:
+This was a bit tougher for me; I decided to use the random value I obtained as the cookie value and set the cookie in the header of the response I returned. The cookie would expire an hour after the webpage was first visited. To ensure that the webpages "persisted," I tried to grab the cookie value from the header, and if it existed, I used it to determine which variant to return. Otherwise, I would proceed to generate a random number to determinine which variant to return. I had trouble testing this in the CloudFlare Workers Playground, but I think it worked?! Anywho, if it doesn't I included a line to comment out that would produce the desired behavior without persisting variants!
 
 ### 3. Publish to a domain
 
 If you have a registered domain/zone with Cloudflare, try deploying your project by customizing the `zone_id` and `route` in your `wrangler.toml`. Make sure to check out the [Quick Start](https://developers.cloudflare.com/workers/quickstart) in the Workers docs for details on how to do this! **Note:** domains cost money, so if you don't have one, please don't feel obligated to buy one for this exercise. This is an extra credit task and you won't be penalized for skipping this one, we promise!
-## anchors in markdown
