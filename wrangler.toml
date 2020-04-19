@@ -1,0 +1,6 @@
+name = "anabelle-app"
+type = "javascript"
+account_id = "45976d2148d761bda079b97a4ff79016"
+workers_dev = true
+route = ""
+zone_id = ""
